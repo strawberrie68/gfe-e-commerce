@@ -7,7 +7,6 @@ import CartButton from './CartButton';
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const linkColor = "#525252"
     const sidebarRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {

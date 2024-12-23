@@ -3,7 +3,7 @@
 import NavLink from './NavLink';
 import CartButton from './CartButton';
 import MobileNavMenu from './MobileNavMenu';
-
+import Link from 'next/link';
 const NavBar = () => {
 
     const links = [
@@ -23,9 +23,9 @@ const NavBar = () => {
             <nav className="flex justify-between items-center px-8 h-[68px]">
                 <ul className="flex items-center gap-24">
                     <li>
-                        <a href='/'>
+                        <Link href='/'>
                             <img src="/stylenest.svg" alt="StyleNest logo" />
-                        </a>
+                        </Link>
                     </li>
                     <div className="gap-8 hidden lg:flex px-1">
                         {links.map((link) => (

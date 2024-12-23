@@ -1,9 +1,9 @@
 "use client";
 
-import { ShoppingBag, AlignJustify, X } from 'lucide-react';
+import { AlignJustify, X } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import Badge from './Badge';
 import NavLink from './NavLink';
+import CartButton from './CartButton';
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -15,6 +15,17 @@ const NavBar = () => {
             sidebarRef.current?.focus();
         }
     }, [isOpen]);
+
+    const links = [
+        {
+            name: 'Shop all',
+            href: '#',
+        },
+        {
+            name: 'Latest arrivals',
+            href: '#',
+        },
+    ];
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
@@ -30,28 +41,24 @@ const NavBar = () => {
     return (
         <header className='max-w-[1440px] mx-auto w-full pt-8 z-50'>
             <nav className="flex justify-between items-center px-8 h-[68px]">
-                <div>
-                    <ul className="flex items-center gap-24">
-                        <li>
-                            <a href='/'>
-                                <img src="/stylenest.svg" alt="StyleNest logo" />
-                            </a>
-                        </li>
-                        <div className="gap-8 hidden lg:flex px-1">
-                            <li>
-                                <NavLink href="/shop-all">Shop all</NavLink>
+
+                <ul className="flex items-center gap-24">
+                    <li>
+                        <a href='/'>
+                            <img src="/stylenest.svg" alt="StyleNest logo" />
+                        </a>
+                    </li>
+                    <div className="gap-8 hidden lg:flex px-1">
+                        {links.map((link) => (
+                            <li key={link.name}>
+                                <NavLink href={link.href}>{link.name}</NavLink>
                             </li>
-                            <li>
-                                <NavLink href="/latest-arrivals">Latest arrivals</NavLink>
-                            </li>
-                        </div>
-                    </ul>
-                </div>
+                        ))}
+                    </div>
+                </ul>
+
                 <div className="flex items-center gap-4">
-                    <button className='relative min-h-11 min-w-11'>
-                        <Badge count={0} />
-                        <ShoppingBag size={24} color={linkColor} aria-label="Shopping Bag" />
-                    </button>
+                    <CartButton cartCount={0} />
                     <button
                         className="block lg:hidden min-h-11 min-w-11"
                         onClick={() => setIsOpen(true)}
@@ -89,16 +96,11 @@ const NavBar = () => {
                                 </button>
                             </div>
                             <ul className="pt-4 flex flex-col gap-6">
-                                <li>
-                                    <a href="/shop-all" className="font-medium text-neutral-600 hover:text-neutral-900">
-                                        Shop all
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/latest-arrivals" className="font-medium text-neutral-600 hover:text-neutral-900">
-                                        Latest arrivals
-                                    </a>
-                                </li>
+                                {links.map((link) => (
+                                    <li key={link.name}>
+                                        <NavLink href={link.href}>{link.name}</NavLink>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </aside>

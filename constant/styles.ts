@@ -1,0 +1,1 @@
+export const linkColor = "#525252"

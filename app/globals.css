@@ -36,3 +36,16 @@ body {
   font-family: Noto Sans, sans-serif;
   min-height: 100vh;
 }
+
+@keyframes navbar-menu {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.animate-navbar-menu {
+  animation: navbar-menu 0.4s ease-out;
+}

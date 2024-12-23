@@ -19,8 +19,8 @@ const NavBar = () => {
 
 
     return (
-        <header className='max-w-[1440px] mx-auto w-full pt-8 z-50'>
-            <nav className="flex justify-between items-center px-8 h-[68px]">
+        <header className='max-w-[1440px] mx-auto w-full z-50'>
+            <nav className="flex justify-between items-center px-4 md:px-8 lg:px-28 h-[68px]">
                 <ul className="flex items-center gap-24">
                     <li>
                         <Link href='/'>

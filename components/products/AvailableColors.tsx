@@ -8,15 +8,15 @@ const AvailableColors = () => {
     const { selectedColor, setSelectedColor, product } =
         useProductDetailsContext();
 
-    if (!product) {
-        return null;
-    }
 
     const unavailableColors = useMemo(
-        () => getUnavailableColors(product),
+        () => product ? getUnavailableColors(product) : [],
         [product],
     );
 
+    if (!product) {
+        return null;
+    }
     return (
         <fieldset className="flex flex-col items-start gap-4">
             <legend className="font-normal text-sm text-neutral-500">Available Colors</legend>

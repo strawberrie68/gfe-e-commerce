@@ -9,17 +9,23 @@ const AvailableSize = () => {
     const { selectedColor, product, selectedSize, setSelectedSize } =
         useProductDetailsContext();
 
+    const unavailableSizes = useMemo(
+        () =>
+            product
+                ? getUnavailableSizes({
+                    product,
+                    color: selectedColor
+                        ? { value: selectedColor, label: selectedColor }
+                        : { value: "", label: "" },
+                })
+                : [],
+        [product, selectedColor]
+    );
+
     if (!product) {
         return null;
     }
 
-    const unavailableSizes = useMemo(
-        () => getUnavailableSizes({
-            product,
-            color: selectedColor ? { value: selectedColor, label: selectedColor } : { value: '', label: '' }
-        }),
-        [product, selectedColor]
-    );
 
     const { sizes } = product;
 

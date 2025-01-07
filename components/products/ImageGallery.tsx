@@ -11,18 +11,18 @@ const ImageGallery = () => {
     const { selectedColor, product } = useProductDetailsContext();
     const [productImages, setProductImages] = useState<ProductImage[]>([])
     const [mainImage, setMainImage] = useState<ProductImage | null>(null);
-    if (!product) {
-        return null;
-    }
 
 
     const selectedImages = useMemo(
-        () => getSelectedColorImages(product, selectedColor),
+        () =>
+            product
+                ? getSelectedColorImages(product, selectedColor)
+                : [],
         [product, selectedColor]
-    )
+    );
 
     useEffect(() => {
-        if (selectedImages && selectedImages.length > 0) {
+        if (selectedImages.length > 0) {
             setProductImages(selectedImages);
             setMainImage(selectedImages[0]);
         } else {
@@ -32,14 +32,17 @@ const ImageGallery = () => {
         }
     }, [selectedImages]);
 
-    const handleImageClick = (selectedImage: ProductImage) => {
-        setMainImage(selectedImage);
-    };
+    if (!product) {
+        return null;
+    }
 
     if (!productImages.length || !mainImage) {
         return null;
     }
 
+    const handleImageClick = (selectedImage: ProductImage) => {
+        setMainImage(selectedImage);
+    };
 
     const getThumbnailsGridClass = () => {
         const totalImages = selectedImages.length;

@@ -1,12 +1,8 @@
-import clsx from 'clsx';
 import { useState } from 'react';
 
 const ToolTip = ({ show = true }) => {
     const [visible, setVisible] = useState(false);
 
-    const arrowPosition = {
-        bottom: "bottom-[-4px] left-1/2 transform -translate-x-1/2 absolute border-t-8 border-x-8 border-t-neutral-950  border-x-transparent"
-    }
 
     return (
         <div

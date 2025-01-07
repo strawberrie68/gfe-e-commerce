@@ -10,7 +10,6 @@ import {
 import { useRouter } from 'next/navigation';
 import { getUnavailableSizes } from './utils';
 import { Product } from './utils';
-import { ColorType } from './utils';
 interface ProductDetailsContextType {
     product: Product | null;
     selectedColor: string | null;

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from 'react';
 
 const paddingClasses = {
     md: 'px-3.5 py-2.5',
@@ -62,23 +62,23 @@ const variantDisabledClasses = {
 type ButtonSize = keyof typeof paddingClasses;
 type ButtonVariant = keyof typeof variantClasses;
 
-interface BaseButtonProps {
+interface CommonButtonProps {
     label?: string;
     className?: string;
     isDisabled?: boolean;
     size?: ButtonSize;
     variant?: ButtonVariant;
-    children?: React.ReactNode;
+    children?: ReactNode;
 }
 
-type ButtonAsButtonProps = BaseButtonProps & Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseButtonProps> & {
-    href?: never;
+type ButtonAsButtonProps = CommonButtonProps & {
+    href?: undefined;
     type?: 'button' | 'submit' | 'reset';
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, keyof CommonButtonProps | 'type'>;
 
-type ButtonAsLinkProps = BaseButtonProps & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseButtonProps | 'href'> & {
+type ButtonAsLinkProps = CommonButtonProps & {
     href: string;
-};
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof CommonButtonProps | 'href'>;
 
 type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
@@ -90,7 +90,6 @@ const Button = ({
     variant = 'primary',
     href,
     children,
-    type = 'button' as ButtonAsButtonProps['type'],
     ...rest
 }: ButtonProps) => {
     const commonClasses = clsx(
@@ -114,7 +113,7 @@ const Button = ({
     );
 
     if (href) {
-        const { href: _, ...linkProps } = rest as ButtonAsLinkProps;
+        const { href, ...linkProps } = rest as ButtonAsLinkProps; // Omit href
         return (
             <Link
                 href={href}
@@ -126,11 +125,10 @@ const Button = ({
         );
     }
 
-    const { type: restType, ...buttonProps } = rest as ButtonAsButtonProps;
-    const finalType = (restType || type) as ButtonAsButtonProps['type'];
+    const { type = 'button', ...buttonProps } = rest as ButtonAsButtonProps;
     return (
         <button
-            type={finalType}
+            type={type}
             className={combinedClasses}
             disabled={isDisabled}
             {...buttonProps}

@@ -1,5 +1,5 @@
 "use client"
-import { useMediaQuery } from 'usehooks-ts';
+import { useMediaQuery } from '@react-hook/media-query'
 import { useMemo } from "react"
 
 import CartControl from "@/components/products/CartControl"
@@ -17,7 +17,8 @@ import { getInventoryData } from "@/components/products/utils"
 
 const ProductMetadata = () => {
 
-    const isMobileAndBelow = useMediaQuery('(max-width: 767px)');
+    const isMobileAndBelow = useMediaQuery('(max-width: 767px)')
+
     const { product, isProductLoading, itemQuantity, selectedColor, selectedSize } = useProductDetailsContext()
 
     const inventoryInfo = useMemo(

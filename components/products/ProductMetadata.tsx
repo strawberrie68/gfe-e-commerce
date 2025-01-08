@@ -47,29 +47,31 @@ const ProductMetadata = () => {
     return (
         <>
             <section className="flex flex-col gap-8">
-                <h1 className="font-semibold text-5xl text-neutral-900">{name}</h1>
-                <div className="flex flex-col gap-3">
-                    {/* PRICE */}
-                    <div className="flex items-end gap-2">
-                        <span className="font-medium text-3xl text-neutral-600"> ${hasDiscount ? sale_price : list_price}</span>
-                        {hasDiscount &&
-                            <span className="font-medium text-lg line-through text-neutral-400">{`$${list_price}`}</span>
-                        }
-                    </div>
+                <div className='flex flex-col gap-5'>
+                    <h1 className="font-semibold text-5xl text-neutral-900">{name}</h1>
+                    <div className="flex flex-col gap-3">
+                        {/* PRICE */}
+                        <div className="flex items-end gap-2">
+                            <span className="font-medium text-3xl text-neutral-600"> ${hasDiscount ? sale_price : list_price}</span>
+                            {hasDiscount &&
+                                <span className="font-medium text-lg line-through text-neutral-400">{`$${list_price}`}</span>
+                            }
+                        </div>
 
-                    {inventoryInfo?.discount &&
-                        <DiscountBadge type={DiscountBadgeType.DOLLAR} amount={inventoryInfo.discount} />}
-                    {inventoryInfo?.discount_percentage &&
-                        <DiscountBadge type={DiscountBadgeType.PERCENTAGE} amount={inventoryInfo.discount_percentage} />}
+                        {inventoryInfo?.discount &&
+                            <DiscountBadge type={DiscountBadgeType.DOLLAR} amount={inventoryInfo.discount} />}
+                        {inventoryInfo?.discount_percentage &&
+                            <DiscountBadge type={DiscountBadgeType.PERCENTAGE} amount={inventoryInfo.discount_percentage} />}
 
-                    {/* RATING and REVIEW */}
-                    <div className="flex gap-2 items-center">
-                        <StarRating rating={rating} />
-                        {/* TODO to be linked to review  */}
-                        <span className="font-medium text-sm text-indigo-700 hover:text-indigo-800">{reviews > 0 ? `See all ${reviews} reviews` : "No reviews yet. Be the first."}</span>
+                        {/* RATING and REVIEW */}
+                        <div className="flex gap-2 items-center">
+                            <StarRating rating={rating} />
+                            {/* TODO to be linked to review  */}
+                            <span className="font-medium text-sm text-indigo-700 hover:text-indigo-800">{reviews > 0 ? `See all ${reviews} reviews` : "No reviews yet. Be the first."}</span>
+                        </div>
                     </div>
                 </div>
-                <p className="font-normal text-base text-neutral-600">{description}</p>
+                <p className="font-normal text-base text-neutral-600 max-w-prose">{description}</p>
 
                 <form aria-labelledby='product-options' className='flex flex-col gap-8'>
                     <AvailableColors />

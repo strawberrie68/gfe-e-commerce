@@ -20,7 +20,7 @@ const AvailableColors = () => {
     return (
         <fieldset className="flex flex-col items-start gap-4">
             <legend className="font-normal text-sm text-neutral-500">Available Colors</legend>
-            <div className="flex gap-2 flex-wrap mt-4">
+            <div className="flex gap-4 flex-wrap mt-4">
                 {product.colors.map((color: string) => {
                     const isUnavailable = unavailableColors.includes(color);
                     return (

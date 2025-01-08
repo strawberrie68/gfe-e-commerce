@@ -1,7 +1,7 @@
 import React from 'react';
 import { StarIcon } from 'lucide-react';
 
-const StarRating = ({ rating = 0, totalStars = 5, size = 24 }) => {
+const StarRating = ({ rating = 0, totalStars = 5, size = 20 }) => {
     // Calculate the filled and partial amounts
     const filledStars = Math.floor(rating);
     const hasPartialStar = rating % 1 !== 0;

@@ -33,13 +33,12 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({ size, inStock, isSelected, 
             className={clsx(
                 `w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid`,
                 {
-                    'bg-white': inStock && !isSelected,
+                    'bg-white': inStock, isSelected,
                     'bg-neutral-100': !inStock,
                     'bg-indigo-50': isSelected,
                     'border-neutral-200': !isSelected,
                     'border-indigo-600': isSelected,
                     'hover:bg-neutral-50': inStock && !isSelected,
-                    'hover:bg-indigo-100': isSelected,
                     'cursor-not-allowed': !inStock
                 }
             )}>

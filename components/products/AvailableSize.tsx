@@ -32,7 +32,7 @@ const AvailableSize = () => {
     return (
         <fieldset className="flex flex-col items-start gap-4">
             <legend className="font-normal text-sm text-neutral-500">Available Sizes</legend>
-            <div className="flex gap-2 flex-wrap mt-4">
+            <div className="flex gap-4 flex-wrap mt-4">
                 {sizes.map((size) => {
                     const isUnavailable = unavailableSizes.includes(size);
                     const isSelected = selectedSize === size;

@@ -3,6 +3,7 @@
 import clsx from "clsx"
 import Modal from "@/components/ui/Modal"
 import ProductReviewsContextProvider from "@/components/review/ProductReviewsContextProvider";
+import Reviews from "@/components/review/Reviews";
 
 const Page = () => {
     const isModalOpen = true;
@@ -15,6 +16,7 @@ const Page = () => {
             )}>
                 <Modal isOpen={isModalOpen} onClose={() => { }}>
                     <ProductReviewsContextProvider>
+                        <Reviews />
                     </ProductReviewsContextProvider>
                 </Modal>
             </div>

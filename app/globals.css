@@ -49,3 +49,7 @@ body {
 .animate-navbar-menu {
   animation: navbar-menu 0.4s ease-out;
 }
+
+.z-modal {
+  z-index: 1055;
+}

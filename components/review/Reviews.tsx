@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useProductReviewsContext } from './ProductReviewsContextProvider';
+import OverallRating from "./OverallRating"
 const Reviews = () => {
     const { isInitialLoading, reviews } = useProductReviewsContext();
     return (
@@ -10,6 +11,7 @@ const Reviews = () => {
                 </div>
             ) : (
                 <div className={clsx("flex flex-col gap-10 lg:flex-row lg:gap-8")}>
+                    <OverallRating />
                 </div>
             )}
 

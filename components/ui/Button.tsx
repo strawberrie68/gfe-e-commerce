@@ -93,7 +93,7 @@ const Button = ({
     ...rest
 }: ButtonProps) => {
     const commonClasses = clsx(
-        'inline-flex items-center justify-center rounded font-medium outline-none border-none cursor-pointer',
+        'inline-flex items-center justify-center rounded font-medium outline-none cursor-pointer',
         'focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
         'transition-colors',
         'text-nowrap',
@@ -113,7 +113,7 @@ const Button = ({
     );
 
     if (href) {
-        const { href, ...linkProps } = rest as ButtonAsLinkProps; // Omit href
+        const { href, ...linkProps } = rest as ButtonAsLinkProps;
         return (
             <Link
                 href={href}

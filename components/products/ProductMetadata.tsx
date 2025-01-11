@@ -7,7 +7,7 @@ import DiscountBadge from "@/components/products/DiscountBadge"
 import { useProductDetailsContext } from "@/components/products/ProductDetailsContext"
 import { DiscountBadgeType } from "@/components/products/DiscountBadge"
 import InfoSection from "@/components/products/InfoSection"
-import StarRating from "@/components/products/StarRating"
+import StarRating from "@/components/ui/StarRating"
 import AvailableColors from "@/components/products/AvailableColors"
 import AvailableSize from "@/components/products/AvailableSize"
 import Button from "@/components/ui/Button"
@@ -65,7 +65,7 @@ const ProductMetadata = () => {
 
                         {/* RATING and REVIEW */}
                         <div className="flex gap-2 items-center">
-                            <StarRating rating={rating} />
+                            <StarRating rating={rating} fontSize="lg" isRatingShown={true} />
                             {/* TODO to be linked to review  */}
                             <span className="font-medium text-sm text-indigo-700 hover:text-indigo-800">{reviews > 0 ? `See all ${reviews} reviews` : "No reviews yet. Be the first."}</span>
                         </div>

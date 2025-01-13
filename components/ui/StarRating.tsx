@@ -10,7 +10,6 @@ interface StarRatingProps {
 }
 
 const StarRating: React.FC<StarRatingProps> = ({ isRatingShown = false, fontSize = "md", rating = 0, totalStars = 5, size = 20 }) => {
-    // Calculate the filled and partial amounts
     const filledStars = Math.floor(rating);
     const hasPartialStar = rating % 1 !== 0;
     const partialWidth = `${(rating % 1) * 100}%`;

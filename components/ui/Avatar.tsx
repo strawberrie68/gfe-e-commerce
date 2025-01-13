@@ -8,7 +8,7 @@ interface AvatarProps {
 }
 
 const Avatar: React.FC<AvatarProps> = ({ image, name }) => {
-
+    const nameInitial = name ? getUserInitial(name) : ""
 
     return (
         <div className={clsx(
@@ -17,9 +17,15 @@ const Avatar: React.FC<AvatarProps> = ({ image, name }) => {
         )}>
             {image ?
                 <Image src={image} alt={`${name} Avatar`} width={48} height={48} className="object-cover" />
-                : <div className="bg-neutral-200 w-full flex justify-center items-center">
-                    <span className="font-medium text-xl text-center text-neutral-600">{getUserInitial(name)}</span>
-                </div>}
+                :
+                <div className={clsx(
+                    "bg-neutral-200",
+                    "w-full",
+                    "flex justify-center items-center"
+                )}>
+                    <span className="font-medium text-xl text-center text-neutral-600">{nameInitial}</span>
+                </div>
+            }
 
         </div>
     )

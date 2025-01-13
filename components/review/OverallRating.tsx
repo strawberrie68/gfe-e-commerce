@@ -45,7 +45,7 @@ const OverallRating = () => {
 
     return (
         <>
-            <div className="flex flex-col gap-6 w-full lg:w-96 self-stretch lg:items-start px-6">
+            <div className="flex flex-col gap-6 w-full lg:w-96 self-stretch lg:items-center px-6">
                 <div className="flex flex-col gap-2">
                     <h3 className="font-semibold text-xl text-neutral-900">Overall Rating</h3>
                     <div className="flex gap-2 items-center">
@@ -84,15 +84,21 @@ const OverallRating = () => {
                 </div>
 
                 <div className="flex items-center gap-6 justify-center">
+                    {/* Button to clear filters */}
                     {selectedRating &&
                         <Button onClick={() => onRatingSelect(null)}
+                            label="Clear Filter"
                             variant="tertiary"
-                            className="w-full font-medium text-base text-indigo-700">Clear filters
-                        </Button>}
-                    <Button size="md" className={clsx(
-                        "shadow-sm font-medium",
-                        `${selectedRating ? "w-full" : "mx-auto max-w-[153px]"}`
-                    )}
+                            size="xl"
+                            className="w-full font-medium text-base text-indigo-700 hover:bg-none">Clear filters
+                        </Button>
+                    }
+
+                    <Button size="md" className={
+                        clsx(
+                            "shadow-sm font-medium",
+                            `${selectedRating ? "w-full" : "mx-auto max-w-[153px]"}`
+                        )}
                         variant="secondary">
                         Write a review
                     </Button>

@@ -42,7 +42,7 @@ const variantClasses = {
         'text-neutral-900',
         'hover:bg-neutral-50 focus:bg-neutral-50',
     ),
-    tertiary: clsx('text-indigo-700', 'hover:bg-neutral-50 focus:bg-neutral-50'),
+    tertiary: clsx('text-indigo-700', 'focus:bg-neutral-50'),
 } as const;
 
 const variantDisabledClasses = {

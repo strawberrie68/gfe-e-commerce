@@ -45,7 +45,7 @@ const OverallRating = () => {
     return (
         <>
             <div className="flex flex-col gap-6 w-full lg:w-96 self-stretch lg:items-center px-6">
-                <div className="flex flex-col gap-2 self-stretch px-4">
+                <div className="flex flex-col gap-2 self-stretch lg:px-2">
                     <h3 className="font-semibold text-xl text-neutral-900">Overall Rating</h3>
                     <div className="flex gap-2 items-center">
                         <StarRating rating={aggregateRating.rating} isRatingShown={true} />
@@ -53,7 +53,7 @@ const OverallRating = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4 py-4 px-8">
+                <div className="flex flex-col gap-4 py-4 lg:px-4">
                     {ratingData.map((rating) => {
                         return (
                             <button

@@ -12,7 +12,7 @@ const Avatar: React.FC<AvatarProps> = ({ image, name }) => {
 
     return (
         <div className={clsx(
-            "w-12 h-12 border rounded-full overflow-hidden",
+            "w-12 h-12 border rounded-full overflow-hidden shrink-0",
             "flex justify-center"
         )}>
             {image ?

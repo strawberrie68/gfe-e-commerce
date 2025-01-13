@@ -14,6 +14,7 @@ export default {
       },
       boxShadow: {
         custom: '0px 0px 0px 4px #e9eafc',
+        buttonShadow: '0px 1px 2px 0 rgb(0 0 0 / 0.06), 0px 1px 3px 0 rgb(0 0 0 / 0.10)'
       },
     },
   },

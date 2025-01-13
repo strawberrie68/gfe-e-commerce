@@ -82,7 +82,7 @@ const ReviewList = () => {
                         size="lg"
                         onClick={loadMoreReviews}
                         isDisabled={isFetchingMore}
-                        className="w-full"
+                        className="w-full shadow-buttonShadow"
                     />
                 </div>
             )}

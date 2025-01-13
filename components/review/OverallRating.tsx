@@ -95,7 +95,7 @@ const OverallRating = () => {
 
                     <Button className={
                         clsx(
-                            "shadow-sm font-semibold",
+                            "shadow-buttonShadow font-medium",
                             `${selectedRating ? "w-full" : "mx-auto max-w-[153px]"}`
                         )}
                         size="xl"

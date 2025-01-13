@@ -27,7 +27,8 @@ const ReviewList = () => {
                 </div>
                 <div
                     className={clsx(
-                        "gap-2', 'text-neutral-900 flex flex-col items-center text-center",
+                        "gap-2",
+                        "text-neutral-900 flex flex-col items-center text-center",
                     )}>
                     <span className="text-xl font-medium">No reviews yet!</span>
                     <span>Be the first to review this product</span>
@@ -53,18 +54,19 @@ const ReviewList = () => {
                             className="flex flex-col gap-4"
                             key={uuidv4()}
                         >
-                            <div className={clsx(
-                                "flex justify-between"
-                            )}>
-                                <div className="flex gap-4">
-                                    <Avatar image={review.user.avatar_url} name={review.user.name} />
-                                    <div className="flex flex-col">
+                            <div className="flex gap-4 items-center">
+                                <Avatar image={review.user.avatar_url} name={review.user.name} />
+                                <div className={clsx(
+                                    "flex flex-col gap-1 w-full"
+                                )}>
+                                    <div className="flex justify-between items-center">
                                         <span className="font-semibold text-base text-neutral-900">{review.user.name}</span>
-                                        <StarRating rating={review.rating} />
+                                        <span className="font-normal text-xs text-neutral-600">{formatDate(review.created_at)}</span>
                                     </div>
+                                    <StarRating rating={review.rating} />
                                 </div>
-                                <span className="font-normal text-xs text-neutral-600">{formatDate(review.created_at)}</span>
                             </div>
+
                             {review.content && <p className="font-normal text-base text-neutral-600">{review.content}</p>}
 
                         </li>

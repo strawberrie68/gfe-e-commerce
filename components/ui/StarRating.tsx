@@ -1,5 +1,6 @@
 import React from 'react';
 import { StarIcon } from 'lucide-react';
+import clsx from 'clsx';
 
 interface StarRatingProps {
     isRatingShown?: boolean;
@@ -7,9 +8,11 @@ interface StarRatingProps {
     rating?: number;
     totalStars?: number;
     size?: number;
+    gap: string
+
 }
 
-const StarRating: React.FC<StarRatingProps> = ({ isRatingShown = false, fontSize = "md", rating = 0, totalStars = 5, size = 20 }) => {
+const StarRating: React.FC<StarRatingProps> = ({ gap = "gap-1", isRatingShown = false, fontSize = "md", rating = 0, totalStars = 5, size = 20 }) => {
     const filledStars = Math.floor(rating);
     const hasPartialStar = rating % 1 !== 0;
     const partialWidth = `${(rating % 1) * 100}%`;
@@ -29,7 +32,7 @@ const StarRating: React.FC<StarRatingProps> = ({ isRatingShown = false, fontSize
             }
 
             {/* Star icons */}
-            <div className='flex gap-1'>
+            <div className={clsx('flex', `${gap}`)}>
                 {[...Array(totalStars)].map((_, index) => (
                     <div key={index} className="relative">
                         {/* Background star (empty) */}

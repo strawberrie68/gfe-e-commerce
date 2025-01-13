@@ -48,7 +48,7 @@ const OverallRating = () => {
                 <div className="flex flex-col gap-2 self-stretch lg:px-2">
                     <h3 className="font-semibold text-xl text-neutral-900">Overall Rating</h3>
                     <div className="flex gap-2 items-center">
-                        <StarRating rating={aggregateRating.rating} isRatingShown={true} />
+                        <StarRating gap="gap-2" rating={aggregateRating.rating} isRatingShown={true} />
                         <span className="font-normal text-sm text-neutral-600">Based on {aggregateRating.total} reviews</span>
                     </div>
                 </div>

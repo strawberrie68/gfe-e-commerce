@@ -8,7 +8,7 @@ interface StarRatingProps {
     rating?: number;
     totalStars?: number;
     size?: number;
-    gap: string
+    gap?: string
 
 }
 

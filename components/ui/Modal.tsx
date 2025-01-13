@@ -1,7 +1,7 @@
 "use client"
 
 import clsx from 'clsx';
-import { useEffect, ReactNode } from 'react';
+import { useEffect, ReactNode, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { RiCloseLine } from 'react-icons/ri';
 
@@ -12,6 +12,11 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+    const [isBrowser, setIsBrowser] = useState(false);
+
+    useEffect(() => {
+        setIsBrowser(true);
+    }, []);
 
     useEffect(() => {
         if (isOpen) {
@@ -24,7 +29,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         }
     }, [isOpen])
 
-    if (!isOpen) return null
+    if (!isOpen || !isBrowser) return null;
 
     return createPortal(
         <div className={clsx(

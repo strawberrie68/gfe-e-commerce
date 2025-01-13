@@ -57,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                 >
                     <button
                         aria-label="Close modal"
-                        className="text-xl font-semibold text-black absolute right-6 top-6"
+                        className="text-xl font-semibold text-black absolute right-8 top-6"
                         onClick={onClose}
                     >
                         <RiCloseLine className="size-6" />

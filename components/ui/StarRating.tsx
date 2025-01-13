@@ -23,7 +23,7 @@ const StarRating: React.FC<StarRatingProps> = ({ isRatingShown = false, fontSize
         <div className="flex items-center gap-2">
             {/* Rating value */}
             {isRatingShown &&
-                <span className={`font-normal ${fontSizeClasses[fontSize]} text-neutral-900`}>
+                <span className={`${isRatingShown ? "font-semibold" : "font-normal"} ${fontSizeClasses[fontSize]} text-neutral-900`}>
                     {rating.toFixed(1)}
                 </span>
             }

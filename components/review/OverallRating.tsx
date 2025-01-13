@@ -53,7 +53,7 @@ const OverallRating = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 py-4">
                     {ratingData.map((rating) => {
                         return (
                             <button

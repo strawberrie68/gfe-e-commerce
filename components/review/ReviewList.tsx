@@ -1,11 +1,12 @@
 import clsx from "clsx"
-import { useProductReviewsContext } from "./ProductReviewsContextProvider"
+import { v4 as uuidv4 } from 'uuid';
+import { RiChatSmile3Line } from 'react-icons/ri';
+
 import { formatDate } from "./utils"
+import { useProductReviewsContext } from "./ProductReviewsContextProvider"
 import Avatar from "../ui/Avatar"
 import StarRating from "../ui/StarRating"
 import Button from "../ui/Button"
-import { RiChatSmile3Line } from 'react-icons/ri';
-import { v4 as uuidv4 } from 'uuid';
 
 
 const ReviewList = () => {

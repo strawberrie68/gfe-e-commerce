@@ -8,7 +8,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 const OverallRating = () => {
     const { aggregateRating, onRatingSelect, selectedRating } = useProductReviewsContext();
-    const hasReviews = !!aggregateRating.total;
 
     const ratingData = [
         {

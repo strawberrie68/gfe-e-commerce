@@ -114,7 +114,7 @@ const specifications: Specification[] = [
         value: 'durability',
         title: 'Built to Last',
         description:
-            'Here’s to apparel that you can trust to look as good as new, wear after wear, year after year.',
+            'Here&apos;s to apparel that you can trust to look as good as new, wear after wear, year after year.',
         img: {
             desktop:
                 'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/product-specifications-section/chair-desktop.jpg',
@@ -196,7 +196,7 @@ const Page = () => {
                     Discover timeless elegance
                 </h2>
                 <p className="font-normal text-lg text-neutral-600">
-                    Step into a world where quality meets quintessential charm with our collection. Every thread weaves a promise of unparalleled quality, ensuring that each garment is not just a part of your wardrobe, but a piece of art. Here's the essence of what makes our apparel the hallmark for those with an eye for excellence and a heart for the environment.
+                    Step into a world where quality meets quintessential charm with our collection. Every thread weaves a promise of unparalleled quality, ensuring that each garment is not just a part of your wardrobe, but a piece of art. Here&apos;s the essence of what makes our apparel the hallmark for those with an eye for excellence and a heart for the environment.
                 </p>
             </div>
 
@@ -228,8 +228,8 @@ const Page = () => {
 
                         <div className='flex flex-col gap-8'>
                             <div className='flex flex-col gap-2'>
-                                <h3 className='font-medium text-2xl text-neutral-900'>{data?.title}</h3>
-                                <p className='font-normal text-base text-neutral-600'>{data?.description}</p>
+                                <h3 className='font-medium text-2xl text-neutral-900'>{data.title}</h3>
+                                <p className='font-normal text-base text-neutral-600'>{data.description}</p>
                             </div>
                             <div className='flex flex-wrap gap-8'>
                                 {data.items.map(({ label, icon: Icon }) => (

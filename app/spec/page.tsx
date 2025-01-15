@@ -222,7 +222,7 @@ const Page = () => {
                                     'w-full lg:w-[367px]',
                                     'rounded-lg object-cover',
                                 )}
-                                alt={`${selectedSpecification}'s banner`}
+                                alt={`${selectedSpecification}&apos;s banner`}
                             />
                         </picture>
 

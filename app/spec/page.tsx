@@ -114,7 +114,7 @@ const specifications: Specification[] = [
         value: 'durability',
         title: 'Built to Last',
         description:
-            'Here’s to apparel that you can trust to look as good as new, wear after wear, year after year.',
+            'Here&apos;s to apparel that you can trust to look as good as new, wear after wear, year after year.',
         img: {
             desktop:
                 'https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/product-specifications-section/chair-desktop.jpg',
@@ -228,8 +228,8 @@ const Page = () => {
 
                         <div className='flex flex-col gap-8'>
                             <div className='flex flex-col gap-2'>
-                                <h3 className='font-medium text-2xl text-neutral-900'>{data?.title}</h3>
-                                <p className='font-normal text-base text-neutral-600'>{data?.description}</p>
+                                <h3 className='font-medium text-2xl text-neutral-900'>{data.title}</h3>
+                                <p className='font-normal text-base text-neutral-600'>{data.description}</p>
                             </div>
                             <div className='flex flex-wrap gap-8'>
                                 {data.items.map(({ label, icon: Icon }) => (

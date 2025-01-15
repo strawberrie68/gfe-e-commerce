@@ -186,6 +186,7 @@ const Page = () => {
 
     return (
         <section className={clsx(
+            'mx-auto min-h-screen max-w-[1440px]',
             'flex flex-col gap-16',
             'self-stretch',
             'px-4 py-12 md:py-16 lg:p-24'
@@ -215,7 +216,7 @@ const Page = () => {
                             <source srcSet={data.img.tablet} media="(min-width: 768px)" />
                             <img
                                 loading="lazy"
-                                src={data?.img.mobile}
+                                src={data.img.mobile}
                                 className={clsx(
                                     'h-[180px] md:h-96 lg:h-64',
                                     'w-full lg:w-[367px]',

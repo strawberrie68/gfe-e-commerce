@@ -196,7 +196,7 @@ const Page = () => {
                     Discover timeless elegance
                 </h2>
                 <p className="font-normal text-lg text-neutral-600">
-                    Step into a world where quality meets quintessential charm with our collection. Every thread weaves a promise of unparalleled quality, ensuring that each garment is not just a part of your wardrobe, but a piece of art. Here's the essence of what makes our apparel the hallmark for those with an eye for excellence and a heart for the environment.
+                    Step into a world where quality meets quintessential charm with our collection. Every thread weaves a promise of unparalleled quality, ensuring that each garment is not just a part of your wardrobe, but a piece of art. Here&apos;s the essence of what makes our apparel the hallmark for those with an eye for excellence and a heart for the environment.
                 </p>
             </div>
 
@@ -222,7 +222,7 @@ const Page = () => {
                                     'w-full lg:w-[367px]',
                                     'rounded-lg object-cover',
                                 )}
-                                alt={`${selectedSpecification}&apos;s banner`}
+                                alt={`${selectedSpecification}'s banner`}
                             />
                         </picture>
 

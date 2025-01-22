@@ -28,30 +28,34 @@ const Page = () => {
     }, [])
 
     return (
-        <div className={clsx(
-            'px-4 py-12 md:py-[72px] lg:px-24 lg:py-[104px]',
-            'flex flex-col gap-8',
-            'h-full',
-        )}>
-            <div className="flex items-center justify-between md:items-start">
-                <div className="text-2xl font-semibold md:text-3xl text-neutral-900">
-                    Latest Arrivals
+        <div className={clsx("bg-gradient-to-b from-gray-50 to-[#d2d6db] p-4")}>
+            <div className={clsx(
+                'bg-white rounded-lg',
+                'px-4 py-12 md:py-[72px] lg:px-24 lg:py-[104px]',
+                'flex flex-col gap-8',
+                'h-full',
+            )}>
+                <div className="flex items-center justify-between md:items-start">
+                    <div className="text-2xl font-semibold md:text-3xl text-neutral-900">
+                        Latest Arrivals
+                    </div>
+                    <Button
+                        label="View all"
+                        variant="secondary"
+                        // href="/products?collectionId=latest"
+                        size="lg"
+                        className="shadow-custom"
+                    />
                 </div>
-                <Button
-                    label="View all"
-                    variant="secondary"
-                    // href="/products?collectionId=latest"
-                    size="lg"
-                    className="shadow-custom"
-                />
+                {isProductLoading ? (
+                    <div className="flex h-full w-full items-center justify-center">
+                        Loading...
+                    </div>
+                ) : (
+                    <LatestArrivalsSection products={products} />
+                )}
             </div>
-            {isProductLoading ? (
-                <div className="flex h-full w-full items-center justify-center">
-                    Loading...
-                </div>
-            ) : (
-                <LatestArrivalsSection products={products} />
-            )}
+
         </div>
     )
 }

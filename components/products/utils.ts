@@ -20,7 +20,7 @@ export interface Product {
         color: string;
         image_url: string;
     }[];
-    info?: {
+    info: {
         title: string;
         description: string[];
     }[];

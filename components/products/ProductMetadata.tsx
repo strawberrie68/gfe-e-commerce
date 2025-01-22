@@ -94,7 +94,7 @@ const ProductMetadata = () => {
                 </form>
             </section>
 
-            <InfoSection product={product} />
+            <InfoSection />
 
         </>)
 }

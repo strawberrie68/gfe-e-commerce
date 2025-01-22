@@ -5,9 +5,10 @@ import {
     useEffect,
     useMemo,
     useState,
-    ReactNode
+    ReactNode,
+    useRef,
 } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { getUnavailableSizes } from './utils';
 import { Product } from './utils';
 interface ProductDetailsContextType {
@@ -35,7 +36,6 @@ export const useProductDetailsContext = () => {
     }
     return context;
 };
-
 const ProductDetailsContextProvider: React.FC<ProductDetailsProviderProps> = ({ children }) => {
     const router = useRouter();
     const [product, setProduct] = useState<Product | null>(null);
@@ -48,10 +48,12 @@ const ProductDetailsContextProvider: React.FC<ProductDetailsProviderProps> = ({ 
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     const [itemQuantity, setItemQuantity] = useState(1);
 
+    const params = useParams<{ id: string }>()
+
     const getProduct = useCallback(async () => {
         setIsProductLoading(true);
         const data = await fetch(
-            `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie`,
+            `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${params.id}`,
         );
         const result = await data.json();
 

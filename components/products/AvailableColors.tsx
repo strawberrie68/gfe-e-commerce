@@ -1,4 +1,4 @@
-import ColorSwatch from "./ColorSwatch"
+import ColorSwatch from "@/components/ui/ColorSwatch"
 import { useProductDetailsContext } from './ProductDetailsContext';
 import { getUnavailableColors } from "./utils";
 import { useMemo } from 'react';
@@ -8,7 +8,6 @@ const AvailableColors = () => {
     const { selectedColor, setSelectedColor, product } =
         useProductDetailsContext();
 
-
     const unavailableColors = useMemo(
         () => product ? getUnavailableColors(product) : [],
         [product],
@@ -17,6 +16,7 @@ const AvailableColors = () => {
     if (!product) {
         return null;
     }
+
     return (
         <fieldset className="flex flex-col items-start gap-4">
             <legend className="font-normal text-sm text-neutral-500">Available Colors</legend>
@@ -30,6 +30,8 @@ const AvailableColors = () => {
                             inStock={!isUnavailable}
                             selected={selectedColor === color}
                             onClick={() => setSelectedColor(color)}
+                            showSelectedOnLoad={true}
+                            size="md"
                         />
                     );
                 })}

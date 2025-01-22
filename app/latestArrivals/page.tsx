@@ -2,7 +2,7 @@
 
 import axios from "axios"
 import clsx from "clsx"
-import { useEffect, useState, useMemo } from "react"
+import { useEffect, useState } from "react"
 import { Product } from "@/components/products/utils"
 import Button from "@/components/ui/Button"
 import LatestArrivalsSection from "@/components/latestArrivalsSection/LatestArrvialSection"

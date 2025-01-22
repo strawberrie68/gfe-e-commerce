@@ -6,7 +6,6 @@ import {
     useMemo,
     useState,
     ReactNode,
-    useRef,
 } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { getUnavailableSizes } from './utils';
@@ -41,14 +40,14 @@ const ProductDetailsContextProvider: React.FC<ProductDetailsProviderProps> = ({ 
     const [product, setProduct] = useState<Product | null>(null);
     const [isProductLoading, setIsProductLoading] = useState(false);
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
-
-    const handleColorChange = useCallback((color: string) => {
-        setSelectedColor(color);
-    }, []);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
     const [itemQuantity, setItemQuantity] = useState(1);
 
     const params = useParams<{ id: string }>()
+
+    const handleColorChange = useCallback((color: string) => {
+        setSelectedColor(color);
+    }, []);
 
     const getProduct = useCallback(async () => {
         setIsProductLoading(true);

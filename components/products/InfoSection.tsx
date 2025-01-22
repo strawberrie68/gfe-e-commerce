@@ -5,14 +5,8 @@ import { useProductDetailsContext } from './ProductDetailsContext';
 
 const InfoSection = () => {
     const { product } = useProductDetailsContext();
-
-    if (!product) {
-        return <p>Product information is not available.</p>;
-    }
-
-    const { info } = product;
     const [visibleSections, setVisibleSections] = useState<boolean[]>(
-        Array(info.length).fill(false)
+        product?.info ? Array(product.info.length).fill(false) : []
     );
 
     const toggleVisibility = (index: number) => {
@@ -20,6 +14,13 @@ const InfoSection = () => {
             prev.map((isVisible, i) => (i === index ? !isVisible : isVisible))
         );
     };
+
+    if (!product) {
+        return <p>Product information is not available.</p>;
+    }
+
+    const { info } = product;
+
     return (
         <section>
             {info.map((info, index) => {

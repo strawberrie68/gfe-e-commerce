@@ -29,10 +29,21 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         };
     }, [isOpen]);
 
+    const handleOverlayClick = (e: React.MouseEvent) => {
+        if (e.target === e.currentTarget) {
+            onClose();
+        }
+    };
+
     if (!isOpen || !isBrowser) return null;
 
     return createPortal(
-        <div className="z-modal fixed inset-0 flex items-center justify-center py-20 shadow-buttonShadow" role="dialog" aria-modal="true">
+        <div
+            className="z-modal fixed inset-0 flex items-center justify-center py-20 shadow-buttonShadow"
+            role="dialog"
+            aria-modal="true"
+            onClick={handleOverlayClick}
+        >
             {/* Overlay */}
             <div
                 className={clsx(

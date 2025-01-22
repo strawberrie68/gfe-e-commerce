@@ -1,6 +1,7 @@
 "use client"
 import { useMediaQuery } from '@react-hook/media-query'
 import { useMemo } from "react"
+import Link from 'next/link'
 
 import CartControl from "@/components/products/CartControl"
 import DiscountBadge from "@/components/products/DiscountBadge"
@@ -11,7 +12,6 @@ import StarRating from "@/components/ui/StarRating"
 import AvailableColors from "@/components/products/AvailableColors"
 import AvailableSize from "@/components/products/AvailableSize"
 import Button from "@/components/ui/Button"
-
 import { getInventoryData } from "@/components/products/utils"
 
 
@@ -66,8 +66,9 @@ const ProductMetadata = () => {
                         {/* RATING and REVIEW */}
                         <div className="flex gap-2 items-center">
                             <StarRating rating={rating} fontSize="lg" isRatingShown={true} />
-                            {/* TODO to be linked to review  */}
-                            <span className="font-medium text-sm text-indigo-700 hover:text-indigo-800">{reviews > 0 ? `See all ${reviews} reviews` : "No reviews yet. Be the first."}</span>
+                            <Link href={`/reviews/${product.product_id}`}>
+                                <span className="font-medium text-sm text-indigo-700 hover:text-indigo-800">{reviews > 0 ? `See all ${reviews} reviews` : "No reviews yet. Be the first."}</span>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -93,7 +94,7 @@ const ProductMetadata = () => {
                 </form>
             </section>
 
-            <InfoSection product={product} />
+            <InfoSection />
 
         </>)
 }

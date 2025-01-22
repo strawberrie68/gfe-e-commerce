@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@react-hook/media-query": "^1.1.1",
+    "axios": "^1.7.9",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "next": "15.1.2",

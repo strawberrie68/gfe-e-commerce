@@ -1,15 +1,12 @@
 import { useState } from "react";
 import InfoToggle from "./InfoToggle";
-import { Product } from "./utils";
+import { useProductDetailsContext } from './ProductDetailsContext';
 
 
-interface InfoSectionProps {
-    product: Product
-}
-
-const InfoSection: React.FC<InfoSectionProps> = ({ product }) => {
+const InfoSection = () => {
+    const { product } = useProductDetailsContext();
     const [visibleSections, setVisibleSections] = useState<boolean[]>(
-        Array(product.info.length).fill(false)
+        product?.info ? Array(product.info.length).fill(false) : []
     );
 
     const toggleVisibility = (index: number) => {
@@ -17,9 +14,16 @@ const InfoSection: React.FC<InfoSectionProps> = ({ product }) => {
             prev.map((isVisible, i) => (i === index ? !isVisible : isVisible))
         );
     };
+
+    if (!product) {
+        return <p>Product information is not available.</p>;
+    }
+
+    const { info } = product;
+
     return (
         <section>
-            {product.info.map((info, index) => {
+            {info.map((info, index) => {
                 return (
                     <div className={`${index !== 0 ? "border-t" : ""} flex flex-col gap-2 py-4`}
                         key={index}

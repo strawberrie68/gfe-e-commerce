@@ -26,7 +26,6 @@ const AvailableSize = () => {
         return null;
     }
 
-
     const { sizes } = product;
 
     return (

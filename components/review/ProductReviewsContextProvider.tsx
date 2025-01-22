@@ -1,7 +1,7 @@
 "use client"
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { useMediaQuery } from '@react-hook/media-query';
-
+import { useParams } from 'next/navigation';
 interface User {
     name: string;
     user_id: string;
@@ -80,6 +80,7 @@ const ProductReviewsContextProvider: React.FC<ProviderProps> = ({ children }) =>
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedRating, setSelectedRating] = useState<number | null>(null);
 
+    const params = useParams<{ id: string }>()
 
     const isDesktopView = useMediaQuery('(min-width: 1024px)');
     const limit = isDesktopView ? 12 : 10;
@@ -92,7 +93,7 @@ const ProductReviewsContextProvider: React.FC<ProviderProps> = ({ children }) =>
         }
         try {
             const response = await fetch(
-                `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie/reviews?page=${currentPage}&per_page=${limit}
+                `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${params.id}/reviews?page=${currentPage}&per_page=${limit}
                 ${selectedRating ? `&rating=${selectedRating}` : ""}`
             );
             const result: ReviewsResponse = await response.json();

@@ -5,9 +5,9 @@ import {
     useEffect,
     useMemo,
     useState,
-    ReactNode
+    ReactNode,
 } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { getUnavailableSizes } from './utils';
 import { Product } from './utils';
 interface ProductDetailsContextType {
@@ -35,23 +35,24 @@ export const useProductDetailsContext = () => {
     }
     return context;
 };
-
 const ProductDetailsContextProvider: React.FC<ProductDetailsProviderProps> = ({ children }) => {
     const router = useRouter();
     const [product, setProduct] = useState<Product | null>(null);
     const [isProductLoading, setIsProductLoading] = useState(false);
     const [selectedColor, setSelectedColor] = useState<string | null>(null);
+    const [selectedSize, setSelectedSize] = useState<string | null>(null);
+    const [itemQuantity, setItemQuantity] = useState(1);
+
+    const params = useParams<{ id: string }>()
 
     const handleColorChange = useCallback((color: string) => {
         setSelectedColor(color);
     }, []);
-    const [selectedSize, setSelectedSize] = useState<string | null>(null);
-    const [itemQuantity, setItemQuantity] = useState(1);
 
     const getProduct = useCallback(async () => {
         setIsProductLoading(true);
         const data = await fetch(
-            `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/voyager-hoodie`,
+            `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${params.id}`,
         );
         const result = await data.json();
 

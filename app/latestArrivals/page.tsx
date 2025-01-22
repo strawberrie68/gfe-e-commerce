@@ -17,7 +17,7 @@ const Page = () => {
             const response = await axios.get(`https://www.greatfrontend.com/api/projects/challenges/e-commerce/products?collection=latest`)
             setProducts(response.data.data)
         } catch (err) {
-            console.error("failed to fetch products")
+            console.error("failed to fetch products", err)
         } finally {
             setIsProductLoading(false)
         }

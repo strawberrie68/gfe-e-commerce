@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     selectedColor,
     onColorSelect
 }) => {
-    const { images, name, inventory, colors } = product;
+    const { name, inventory, colors } = product;
 
     const capitalize = (word: string): string => {
         if (!word) return '';

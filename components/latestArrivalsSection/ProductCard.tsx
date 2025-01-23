@@ -47,6 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             'rounded-lg',
             'outline-none',
             'focus-visible:ring-4 focus-visible:ring-indigo-600/[.12]',
+            'h-[468px]',
         )}
             tabIndex={0}
         >
@@ -66,7 +67,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <span className="font-normal text-xs text-neutral-600">
                         {capitalize(displayColor)}
                     </span>
-                    <span className="font-medium text-lg text-neutral-900 group-hover:text-indigo-700">
+                    <span className="font-medium text-lg tracking-wide text-neutral-900 group-hover:text-indigo-700">
                         {name}
                     </span>
 
@@ -85,7 +86,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 </div>
 
                 {/* COLOR SWATCH */}
-                <div className="flex gap-2">
+                <div className="flex gap-1">
                     {colors.map((color, i) => {
                         const isUnavailable = unavailableColors.includes(color);
                         return (

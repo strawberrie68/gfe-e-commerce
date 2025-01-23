@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 const outerSizeClasses = {
     md: 'size-[56.67px]',
-    sm: 'size-6',
+    sm: 'w-[24px] h-[24px]',
 };
 
 const innerSizeClasses = {
@@ -65,7 +65,8 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
             aria-label={color.label}
             className={clsx(
                 outerSizeClasses[size],
-                readOnly ? 'pointer-events-none' : 'cursor-pointer'
+                readOnly ? 'pointer-events-none' : 'cursor-pointer',
+                'flex justify-center items-center'
             )}
             onClick={handleClick}
         >

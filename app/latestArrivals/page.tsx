@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { Product } from "@/components/products/utils"
 import Button from "@/components/ui/Button"
-import LatestArrivalsSection from "@/components/latestArrivalsSection/LatestArrvialSection"
+import LatestArrivalsSection from "@/components/latestArrivalsSection/LatestArrivalSection"
 
 const Page = () => {
     const [products, setProducts] = useState<Product[]>([])
@@ -31,7 +31,7 @@ const Page = () => {
         <div className={clsx("bg-gradient-to-b from-gray-50 to-[#d2d6db] p-4")}>
             <div className={clsx(
                 'bg-white rounded-lg',
-                'px-4 py-12 md:py-[72px] lg:px-24 lg:py-[104px]',
+                'px-4 py-10 md:py-[72px] lg:px-24 lg:py-[104px]',
                 'flex flex-col gap-8',
                 'h-full',
             )}>
@@ -44,7 +44,7 @@ const Page = () => {
                         variant="secondary"
                         // href="/products?collectionId=latest"
                         size="lg"
-                        className="shadow-custom"
+                        className="shadow-custom font-medium"
                     />
                 </div>
                 {isProductLoading ? (

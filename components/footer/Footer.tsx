@@ -79,13 +79,13 @@ const Footer = () => {
             className={clsx(
                 "flex flex-col justify-center grow gap-12",
                 "self-stretch",
-                "py-12 md:py-16 md:pt-[116px] px-4 lg:px-8",
+                "py-12 md:py-16 lg:py-12 lg:px-4",
                 "max-w-[1216px] lg:mx-auto"
             )}
         >
             <section className={clsx(
                 "grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12",
-                "gap-x-4 md:gap-x-8 lg:gap-y-[66px]"
+                "gap-x-4 md:gap-x-8 lg:gap-y-[66px] lg:pt-24"
             )}>
                 <div className="flex flex-col gap-2 self-stretch col-span-4 md:col-span-3 lg:col-span-8">
                     <h3 className="font-semibold text-xl text-neutral-900">
